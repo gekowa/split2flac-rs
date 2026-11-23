@@ -208,7 +208,7 @@ def package(args, archives, tools):
         if args.target.endswith('-msvc'):
             env.setdefault('CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUSTFLAGS', '-C target-feature=+crt-static')
         if args.target.endswith('-gnullvm'):
-            env.setdefault('CARGO_TARGET_X86_64_PC_WINDOWS_GNULLVM_RUSTFLAGS', '-C link-arg=-static')
+            env.setdefault('CARGO_TARGET_X86_64_PC_WINDOWS_GNULLVM_RUSTFLAGS', '-C target-feature=+crt-static')
         # Use the executable Cargo actually produced; target-dir is configurable.
         artifacts = subprocess.check_output([
             'cargo', 'build', '--release', '--locked', '--offline', '--target', args.target,
