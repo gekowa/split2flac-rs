@@ -1,4 +1,4 @@
-use split2flac::{cue, layout, source};
+use split2flac_rs::{cue, layout, source};
 use std::fs;
 
 // Literal outcomes from shntool 3.0.10 / cuetools 1.4.0 in the pinned image.

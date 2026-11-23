@@ -1,20 +1,31 @@
-# split2flac (Rust)
+# split2flac-rs (Reimplement in Rust)
 
-按 CUE 把一张整轨镜像切成单曲。切轨行为以 [split2flac v122](https://github.com/ftrvxmtrx/split2flac/tree/491591d21e2f97419e74751864b76b234b0fa2f1) 的实际输出为准；编解码由 FFmpeg 完成。目标平台为 Windows x64、macOS Apple Silicon 和 macOS Intel。不是原 Shell 脚本的包装器。
+split2flac 对于切分 flac + cue 来说是完美的, 除了它的难以配置的依赖和系统兼容性之外
+unflac 被 split2flac 指定为后继者, 但它对于 pregap 和 postgap 的忽视, 也让我无法忍受.
+
+因此我用 Rust 重新实现了 `split2flac-rs`。切轨行为以原版 [split2flac v122](https://github.com/ftrvxmtrx/split2flac/tree/491591d21e2f97419e74751864b76b234b0fa2f1) 的实际输出为准；编解码由 FFmpeg 完成。
+
+目标平台为 Windows x64、macOS Apple Silicon 和 macOS Intel。不做原 Shell 脚本的包装器。
 
 ## 使用
 
-解压对应平台的发布包，保留程序旁边的 `tools/` 目录。先预览轨名，再实际切分：
+从 [GitHub Releases](https://github.com/gekowa/split2flac-rs/releases/latest) 的 **Assets** 下载对应平台的离线包：
+
+- **Windows x64**：`split2flac-rs-x86_64-pc-windows-msvc.zip`
+- **macOS（Apple Silicon）**：`split2flac-rs-aarch64-apple-darwin.tar.gz`
+- **macOS（Intel）**：`split2flac-rs-x86_64-apple-darwin.tar.gz`
+
+解压完整压缩包，进入 `split2flac-rs` 目录后执行以下命令。保留程序旁边的 `tools/`；不需要另装 FFmpeg。
 
 ```powershell
-.\split2flac.exe -p 'D:\古典音乐\CD 2\src.flac'
-.\split2flac.exe -o 'D:\单曲' 'D:\古典音乐\CD 2\src.flac'
+.\split2flac-rs.exe -p 'src.flac'
+.\split2flac-rs.exe -o 'D:\单曲' 'D:\古典音乐\CD 2\src.flac'
 ```
 
 ```sh
-./split2flac -p '/Volumes/Music/古典音乐/CD 2/src.flac'
-./split2flac -cue 'album.cue' -o '单曲' 'src.flac'
-./split2flac -f mp3 -e '-b:a 192k' -o '导出' '专辑目录'
+./split2flac-rs -p '/Volumes/Music/古典音乐/CD 2/src.flac'
+./split2flac-rs -cue 'album.cue' -o '单曲' 'src.flac'
+./split2flac-rs -f mp3 -e '-b:a 192k' -o '导出' '专辑目录'
 ```
 
 - **输入**：APE、FLAC、TTA、WavPack、WAV；目录输入会递归查找。`-cue` 优先于 `src.flac.cue`、`src.cue` 和内嵌 CUE。非 UTF-8 文本可用 `-cuecharset GBK` 等显式指定。
@@ -46,7 +57,7 @@ cargo run --release --locked -- -h
 docker pull --platform linux/amd64 mikenye/split2flac@sha256:47e6cb8d835a05f08efae20f7bf196552754df09e9dc957cc473b870f4dbc8ba
 cargo test --locked
 python3 tests/oracle/generate.py --check
-python3 tests/compare.py --bin target/release/split2flac
+python3 tests/compare.py --bin target/release/split2flac-rs
 ```
 
 仅重建基准需要 Docker。`tests/oracle/expected.json` 记录原版退出状态、输出文件名、音频属性及逐轨 PCM SHA-256；只读比较不需要安装 shntool、cuetools 或运行原脚本。原生验收入口为 `packaging/check_release.py`。
@@ -63,7 +74,9 @@ rustup component add rust-docs
 cargo fetch --locked --target "$T"
 python3 packaging/package.py --target "$T" --fetch-only
 python3 packaging/package.py --target "$T" --offline
-python3 packaging/check_release.py "dist/split2flac-$T.tar.gz" --target "$T"
+python3 packaging/check_release.py "dist/split2flac-rs-$T.tar.gz" --target "$T"
 ```
 
 压缩包及 `.sha256` 校验文件在 `dist/`。Windows ZIP 和两个 macOS tar.gz 分开分发；请勿只复制主程序。普通 CLI 使用不需要网络、Python 或管理员权限。
+
+发布新版本时，在包含此工作流的提交上创建并推送版本标签，例如 `git tag v0.1.0 && git push origin v0.1.0`。原版基准和三个原生平台验收全部通过后，GitHub Actions 会创建同名 Release，附上三个离线包及各自的 `.sha256`。PR 和手动运行仅做验收，不会发布。

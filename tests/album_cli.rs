@@ -17,7 +17,7 @@ fn fixture(root: &Path, titles: &[&str]) {
     fs::write(root.join("盘.cue"), cue).unwrap();
 }
 fn run(root:&Path, args:&[&str])->std::process::Output {
-    Command::new(env!("CARGO_BIN_EXE_split2flac")).current_dir(root).env("HOME",root).env("USERPROFILE",root).env("XDG_CONFIG_HOME",root).env("APPDATA",root).args(args).output().unwrap()
+    Command::new(env!("CARGO_BIN_EXE_split2flac-rs")).current_dir(root).env("HOME",root).env("USERPROFILE",root).env("XDG_CONFIG_HOME",root).env("APPDATA",root).args(args).output().unwrap()
 }
 #[test]
 fn duplicate_track_names_fail_before_first_output_or_deletion() {

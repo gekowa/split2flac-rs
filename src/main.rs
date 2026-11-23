@@ -1,5 +1,5 @@
 use std::process::ExitCode;
-use split2flac::{album, cli};
+use split2flac_rs::{album, cli};
 
 fn main() -> ExitCode {
     let options = match cli::parse() {

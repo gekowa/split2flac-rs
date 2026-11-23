@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Compare a native CLI against frozen upstream observations; no Docker or PATH codecs.
 
-python3 tests/compare.py --bin /absolute/path/to/split2flac
-python3 tests/compare.py --bin /absolute/path/to/split2flac --private /path/to/local-album
+python3 tests/compare.py --bin /absolute/path/to/split2flac-rs
+python3 tests/compare.py --bin /absolute/path/to/split2flac-rs --private /path/to/local-album
 """
 import argparse
 import json

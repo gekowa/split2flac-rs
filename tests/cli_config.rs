@@ -1,7 +1,7 @@
 use std::{fs, path::Path, process::{Command, Output}};
 
 fn run(home: &Path, args: &[&str]) -> Output {
-    Command::new(env!("CARGO_BIN_EXE_split2flac"))
+    Command::new(env!("CARGO_BIN_EXE_split2flac-rs"))
         .current_dir(home)
         .env("HOME", home)
         .env("USERPROFILE", home)

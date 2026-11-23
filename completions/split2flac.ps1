@@ -1,5 +1,5 @@
 # Dot-source this file in PowerShell: . .\completions\split2flac.ps1
-$split2Names = 'split2flac','split2m4a','split2mp3','split2ogg','split2opus','split2wav'
+$split2Names = 'split2flac-rs','split2flac','split2m4a','split2mp3','split2ogg','split2opus','split2wav'
 Register-ArgumentCompleter -Native -CommandName ($split2Names + @($split2Names | ForEach-Object { "$_.exe" })) -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)
     $previous = $commandAst.CommandElements | Where-Object { $_.Extent.EndOffset -le ($cursorPosition - $wordToComplete.Length) } | Select-Object -Last 1

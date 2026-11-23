@@ -1,4 +1,4 @@
-#compdef split2flac split2m4a split2mp3 split2ogg split2opus split2wav
+#compdef split2flac-rs split2flac split2m4a split2mp3 split2ogg split2opus split2wav
 
 _arguments \
   '-p[preview without writing output]' \

@@ -1,6 +1,6 @@
 use std::{collections::BTreeMap, fs, path::{Path, PathBuf}, process::Command};
 
-use split2flac::{gain, tools::binary};
+use split2flac_rs::{gain, tools::binary};
 use tempfile::tempdir;
 
 // Decoded audio, not a file checksum: changing a comment necessarily changes the container.

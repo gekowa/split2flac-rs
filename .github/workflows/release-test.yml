@@ -1,7 +1,9 @@
-name: Offline release acceptance
+name: Build, verify and release
 on:
   workflow_dispatch:
   pull_request:
+  push:
+    tags: ['v*']
 permissions:
   contents: read
 jobs:
@@ -74,20 +76,45 @@ jobs:
         run: |
           $python = (Get-Command python.exe).Source
           $env:PATH = "$env:MSYS_ROOT\ucrt64\bin;$env:MSYS_ROOT\usr\bin;$env:PATH"
-          & $python packaging/package.py --target $env:TARGET --bin "target/$env:TARGET/release/split2flac.exe" --bash "$env:MSYS_ROOT\usr\bin\bash.exe" --offline
+          & $python packaging/package.py --target $env:TARGET --bin "target/$env:TARGET/release/split2flac-rs.exe" --bash "$env:MSYS_ROOT\usr\bin\bash.exe" --offline
       - name: Assemble offline package (macOS)
         if: runner.os == 'macOS'
         run: python packaging/package.py --target "$TARGET" --offline
-      - name: Unpack under a new Unicode path; verify complete oracle and 30 codec pairs
+      - name: Verify the unpacked release and run Rust tests with its codecs
         shell: bash
         run: |
           set -euo pipefail
           # Record the host, checksum and completed cases even on failure.
           trap 'cat "$RUNNER_TEMP/acceptance.txt" >> "$GITHUB_STEP_SUMMARY"' EXIT
-          python packaging/check_release.py "dist/split2flac-$TARGET.${{ matrix.ext }}" --target "$TARGET" 2>&1 | tee "$RUNNER_TEMP/acceptance.txt"
-      - name: Run CLI, gain and audio regression tests against the same codec build
-        shell: bash
+          python packaging/check_release.py "dist/split2flac-rs-$TARGET.${{ matrix.ext }}" --target "$TARGET" --cargo-test 2>&1 | tee "$RUNNER_TEMP/acceptance.txt"
+      - name: Stage the verified release files
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release-${{ matrix.target }}
+          path: |
+            dist/split2flac-rs-${{ matrix.target }}.${{ matrix.ext }}
+            dist/split2flac-rs-${{ matrix.target }}.${{ matrix.ext }}.sha256
+          if-no-files-found: error
+          compression-level: 0
+
+  publish:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: [reference, native]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: release-*
+          path: dist
+          merge-multiple: true
+      - name: Publish archives and checksums to GitHub Releases
+        working-directory: dist
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          set -euo pipefail
-          export SPLIT2FLAC_TOOLS="$(python -c "import os, pathlib; (p,)=(pathlib.Path('target/packaging/tools')/os.environ['TARGET']).glob('*/hashes.json'); print(p.resolve().parent)")"
-          cargo test --locked --offline --target "$TARGET"
+          sha256sum --check --strict *.sha256
+          gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" \
+            --verify-tag --generate-notes *.zip *.tar.gz *.sha256

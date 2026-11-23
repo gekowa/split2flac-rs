@@ -13,4 +13,4 @@ _split2flac() {
     esac
     while IFS= read -r item; do COMPREPLY+=("$item"); done < <(compgen -f -- "$cur")
 }
-complete -o filenames -F _split2flac split2flac split2m4a split2mp3 split2ogg split2opus split2wav
+complete -o filenames -F _split2flac split2flac-rs split2flac split2m4a split2mp3 split2ogg split2opus split2wav

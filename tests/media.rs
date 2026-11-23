@@ -1,4 +1,4 @@
-use split2flac::{media, split, tools};
+use split2flac_rs::{media, split, tools};
 use std::{fs, path::{Path, PathBuf}, process::Command};
 use tempfile::tempdir;
 

@@ -670,8 +670,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3244542535d5de959d90ec55d1b5ff0fd2bb7b1310223907d5f11932847f7b59"
 
 [[package]]
-name = "split2flac"
-version = "0.1.0"
+name = "split2flac-rs"
+version = "0.2.0"
 dependencies = [
  "anyhow",
  "chardetng",

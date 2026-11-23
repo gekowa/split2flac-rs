@@ -32,7 +32,8 @@ CONFIG = json.loads(LOCK.read_text(encoding='utf-8'))
 # FFmpeg is an independent Win64 process, identical for the two MinGW Rust ABIs.
 CONFIG['targets']['x86_64-pc-windows-gnullvm'] = CONFIG['targets']['x86_64-pc-windows-gnu']
 STAGE = ROOT / 'target/packaging'
-ALIASES = ('split2m4a', 'split2mp3', 'split2ogg', 'split2opus', 'split2wav')
+PROGRAM = 'split2flac-rs'
+ALIASES = ('split2flac', 'split2m4a', 'split2mp3', 'split2ogg', 'split2opus', 'split2wav')
 
 
 def digest(path):
@@ -212,21 +213,21 @@ def package(args, archives, tools):
         # Use the executable Cargo actually produced; target-dir is configurable.
         artifacts = subprocess.check_output([
             'cargo', 'build', '--release', '--locked', '--offline', '--target', args.target,
-            '--bin', 'split2flac', '--message-format=json-render-diagnostics',
+            '--bin', PROGRAM, '--message-format=json-render-diagnostics',
         ], cwd=ROOT, env=env, text=True)
         executables = [v['executable'] for v in map(json.loads, artifacts.splitlines())
                        if v.get('reason') == 'compiler-artifact' and v.get('executable')
-                       and v['target']['name'] == 'split2flac']
+                       and v['target']['name'] == PROGRAM]
         if len(executables) != 1:
-            raise RuntimeError('Cargo did not report exactly one split2flac executable')
+            raise RuntimeError(f'Cargo did not report exactly one {PROGRAM} executable')
         app = Path(executables[0])
     check_binary(app, args.target)
     args.out.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=args.out) as temp:
-        bundle = Path(temp) / 'split2flac'
+        bundle = Path(temp) / PROGRAM
         (bundle / 'tools').mkdir(parents=True)
         suffix = '.exe' if win(args.target) else ''
-        main = bundle / ('split2flac' + suffix)
+        main = bundle / (PROGRAM + suffix)
         shutil.copy2(app, main)
         for alias in ALIASES:
             if win(args.target):
@@ -243,7 +244,7 @@ def package(args, archives, tools):
         for name in ('split2flac.bash', '_split2flac', 'split2flac.ps1'):
             shutil.copyfile(ROOT / 'completions' / name, bundle / 'completions' / name)
         install_sources(bundle, args.target, archives, tools)
-        archive_name = f'split2flac-{args.target}.' + CONFIG['targets'][args.target]['container']
+        archive_name = f'{PROGRAM}-{args.target}.' + CONFIG['targets'][args.target]['container']
         path = Path(temp) / archive_name
         if win(args.target):
             with zipfile.ZipFile(path, 'w', compression=zipfile.ZIP_DEFLATED) as z:
@@ -264,7 +265,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--target', required=True, choices=CONFIG['targets'])
     p.add_argument('--cache', type=Path, default=STAGE / 'sources')
-    p.add_argument('--bin', type=Path, help='prebuilt Rust split2flac executable')
+    p.add_argument('--bin', type=Path, help='prebuilt split2flac-rs executable')
     p.add_argument('--out', type=Path, default=ROOT / 'dist')
     p.add_argument('--bash', default='bash')
     p.add_argument('--offline', action='store_true', help='do not fetch missing codec sources')

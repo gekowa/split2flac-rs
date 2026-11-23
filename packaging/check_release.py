@@ -106,6 +106,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('archive', type=Path)
     p.add_argument('--target', required=True, choices=[*TARGETS.values(), 'x86_64-pc-windows-gnu', 'x86_64-pc-windows-gnullvm'])
+    p.add_argument('--cargo-test', action='store_true', help='also run the Rust regression tests with the unpacked codecs')
     args = p.parse_args()
     local = TARGETS.get((platform.system(), platform.machine().lower()))
     host_target = 'x86_64-pc-windows-msvc' if '-windows-' in args.target else args.target
@@ -134,7 +135,7 @@ def main():
         else:
             with tarfile.open(archive, 'r:gz') as t:
                 t.extractall(work, filter='data')
-        program = work / 'split2flac' / ('split2flac.exe' if os.name == 'nt' else 'split2flac')
+        program = work / 'split2flac-rs' / ('split2flac-rs.exe' if os.name == 'nt' else 'split2flac-rs')
         home = work / '测试 home'
         home.mkdir()
         env = dict(os.environ, HOME=str(home), USERPROFILE=str(home), XDG_CONFIG_HOME=str(home),
@@ -143,6 +144,9 @@ def main():
             env.pop(name, None)
         subprocess.run([sys.executable, ROOT / 'tests/compare.py', '--bin', program], env=env, cwd=work, check=True)
         matrix(program, work, env)
+        if args.cargo_test:
+            subprocess.run(['cargo', 'test', '--locked', '--offline', '--target', args.target],
+                cwd=ROOT, env={**os.environ, 'SPLIT2FLAC_TOOLS': str(program.parent / 'tools')}, check=True)
 
 
 if __name__ == '__main__':

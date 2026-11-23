@@ -1,6 +1,6 @@
 [package]
-name = "split2flac"
-version = "0.1.0"
+name = "split2flac-rs"
+version = "0.2.0"
 edition = "2024"
 description = "Sample-accurate CUE image splitter compatible with split2flac v122"
 license = "MIT"
