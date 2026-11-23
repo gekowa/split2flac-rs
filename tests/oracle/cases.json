@@ -1,0 +1,52 @@
+{
+  "defaults": {
+    "rate": 44100, "channels": 2, "bits": 16, "frames": 132317,
+    "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:01:05", "INDEX 01 00:02:02"]
+  },
+  "cases": {
+    "plain": {},
+    "pregap-first": {"patch": {"1": "PREGAP 00:00:04; INDEX 01 00:00:00"}},
+    "pregap-middle": {"patch": {"2": "PREGAP 00:00:04; INDEX 01 00:01:05"}},
+    "postgap-first": {"patch": {"1": "INDEX 01 00:00:00; POSTGAP 00:00:04"}},
+    "postgap-middle": {"patch": {"2": "INDEX 01 00:01:05; POSTGAP 00:00:04"}},
+    "postgap-last": {"patch": {"3": "INDEX 01 00:02:02; POSTGAP 00:00:04"}},
+    "adjacent-post-pre": {"patch": {"1": "INDEX 01 00:00:00; POSTGAP 00:00:03", "2": "PREGAP 00:00:04; INDEX 01 00:01:05"}},
+    "recorded-pregap": {"patch": {"2": "INDEX 00 00:00:70; INDEX 01 00:01:05"}},
+    "recorded-and-declared": {"patch": {"1": "INDEX 01 00:00:00; POSTGAP 00:00:03", "2": "PREGAP 00:00:04; INDEX 00 00:00:70; INDEX 01 00:01:05"}},
+    "index-02": {"patch": {"2": "INDEX 01 00:01:05; INDEX 02 00:01:15"}},
+    "hidden": {"patch": {"1": "INDEX 01 00:00:05"}},
+    "single-pre-post": {"tracks": ["PREGAP 00:00:04; INDEX 01 00:00:00; POSTGAP 00:00:03"]},
+    "single-nonzero": {"tracks": ["INDEX 01 00:00:05"]},
+    "one-sector-rollover": {"tracks": ["INDEX 01 00:00:00", "INDEX 01 00:00:74", "INDEX 01 00:01:00"]},
+    "standard-44100": {"frames": 88217, "tracks": ["INDEX 01 00:00:00", "INDEX 00 00:00:70; INDEX 01 00:01:01"]},
+    "noncd-48000": {"rate": 48000, "frames": 96017, "tracks": ["INDEX 01 00:00:00", "INDEX 00 00:00:70; INDEX 01 00:01:01"]},
+    "noncd-96000-24": {"rate": 96000, "bits": 24, "frames": 288000, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:01:01"]},
+    "noncd-mono": {"channels": 1, "frames": 132300, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:01:01"]},
+    "unaligned-five-channels": {"channels": 5, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:00:01"]},
+    "data-track": {"data_track": 2, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:01:01"]},
+    "multifile-reset": {"second_file": true, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:00:00"]},
+    "multifile-ascending": {"second_file": true, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:01:01"]},
+    "missing-index": {"patch": {"2": ""}},
+    "repeated-index": {"patch": {"2": "INDEX 01 00:01:05; INDEX 01 00:01:06"}},
+    "duplicate-cut": {"patch": {"3": "INDEX 01 00:01:05"}},
+    "descending": {"patch": {"3": "INDEX 01 00:01:04"}},
+    "bad-time": {"patch": {"2": "INDEX 01 not-a-time"}},
+    "cut-at-eof": {"frames": 44688, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:01:01"]},
+    "cut-beyond-eof": {"frames": 44687, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:01:01"]},
+    "cut-one-before-eof": {"frames": 44689, "tracks": ["INDEX 01 00:00:00", "INDEX 01 00:01:01"]},
+    "third-beyond-eof": {"frames": 89375},
+    "embedded": {"source": "embedded"},
+    "stem-over-embedded": {"source": "stem-over-embedded"},
+    "suffix-over-stem": {"source": "suffix-over-stem"},
+    "explicit-over-suffix": {"source": "explicit-over-suffix"},
+    "gbk-crlf-compilation": {"encoding": "gbk", "newline": "CRLF", "compilation": true, "args": ["-cuecharset", "GBK"], "pattern": "@track - @performer - @title.@ext"},
+    "utf8-bom-crlf": {"encoding": "utf-8-sig", "newline": "CRLF", "compilation": true, "pattern": "@track - @performer - @title.@ext"},
+    "anonymous-disc": {
+      "pattern": "@track - Track.@ext",
+      "frames": 198512901,
+      "eof_basis": "Synthetic only: final original INDEX 01 (56:25:70, 149319660 frames) plus 1115.493 seconds from the duration table, rounded to the nearest sample (49193241 frames). Original disc EOF unknown.",
+      "durations_ms": [970667, 524000, 229667, 566000, 404333, 690840, 1115493],
+      "tracks": ["INDEX 00 00:00:00; INDEX 01 00:00:32", "INDEX 00 08:07:65; INDEX 01 16:11:07", "INDEX 01 24:55:07", "INDEX 00 28:40:53; INDEX 01 28:44:57", "INDEX 01 38:10:57", "INDEX 00 44:46:73; INDEX 01 44:55:07", "INDEX 00 56:18:03; INDEX 01 56:25:70"]
+    }
+  }
+}

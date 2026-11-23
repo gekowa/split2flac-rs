@@ -1,0 +1,1390 @@
+{
+  "cases": {
+    "adjacent-post-pre": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "cae105b14e026f8eb97cf071e51ddf77b52d74984e25e6d946672de31ef34022",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "anonymous-disc": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 198512901,
+          "pcm_sha256": "048d632e0818e99b5ee870ab4c0417be658356087d03eee15cd20cd4f9bc61eb",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "6b5872b59a027d0ed892e46116252b02e209fbdc7ef5a4c3c5c5dea9249abdda",
+          "image.wav": "f6db57536f58a3e14e9116ca7b5c2706df2541adacbaa81806d141101eea704a"
+        }
+      },
+      "ordered_pcm_sha256": "048d632e0818e99b5ee870ab4c0417be658356087d03eee15cd20cd4f9bc61eb",
+      "outputs": {
+        "00.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 427,
+          "frames": 18816,
+          "pcm_sha256": "4951a2d8d218c294be5a826278dc3042102ccad8be294de6e19854318f93354f",
+          "rate": 44100
+        },
+        "01 - Track.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 970667,
+          "frames": 42806400,
+          "pcm_sha256": "500059fa8013f598f455c3bd203d85bdfedb308bdcf437e5ec8146ce70945112",
+          "rate": 44100
+        },
+        "02 - Track.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 524000,
+          "frames": 23108400,
+          "pcm_sha256": "0e7ce740dcb552ec6fe25b18cc895b29230edb79bb783039da35ff71fc709f56",
+          "rate": 44100
+        },
+        "03 - Track.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 229667,
+          "frames": 10128300,
+          "pcm_sha256": "8306db814bde3e3ac78e16af0976e8da5152a56c99c5910b0bf90b692eb65cd0",
+          "rate": 44100
+        },
+        "04 - Track.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 566000,
+          "frames": 24960600,
+          "pcm_sha256": "631aba9c754b9f6b9cd066261e8477a148cc8a1cc1dbcbb403ddd7a6ce9e0f2a",
+          "rate": 44100
+        },
+        "05 - Track.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 404333,
+          "frames": 17831100,
+          "pcm_sha256": "be147b3214e26366ddaa06ac7965ba41936891470be04b9241689a1967855d78",
+          "rate": 44100
+        },
+        "06 - Track.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 690840,
+          "frames": 30466044,
+          "pcm_sha256": "fdaf903f6b7d73bb3d7b5d71317e328d2a08a26f053a7c0858691aa5f7afc700",
+          "rate": 44100
+        },
+        "07 - Track.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1115493,
+          "frames": 49193241,
+          "pcm_sha256": "3cf1dc626b2338367c5e7283904e8508a5a0eda09cdd3a03f97aeb5c157658ae",
+          "rate": 44100
+        }
+      }
+    },
+    "bad-time": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "cbcc700129292b6e09951b28390ff4ceeb83f991ef7818ad88d7a286803fca60",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": {}
+    },
+    "cut-at-eof": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 44688,
+          "pcm_sha256": "2b9950138453967d3b804d6a6ac92b853db8cb7d01297cab0650912ad5ab62b1",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "4c3f414480db9b3fd443a3cdcf9a6795531cc751ac89a7284f15e5f4d1a14c63",
+          "image.wav": "5562bd9379f402a41fbec9fdc4bd0cfc683b3406ba5bb91476fb64d752f01195"
+        }
+      },
+      "ordered_pcm_sha256": "2b9950138453967d3b804d6a6ac92b853db8cb7d01297cab0650912ad5ab62b1",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1013,
+          "frames": 44688,
+          "pcm_sha256": "2b9950138453967d3b804d6a6ac92b853db8cb7d01297cab0650912ad5ab62b1",
+          "rate": 44100
+        }
+      }
+    },
+    "cut-beyond-eof": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 44687,
+          "pcm_sha256": "627e10062596f5963ba988081530a6aaf4800474f08c8cde9991de77ae327309",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "4c3f414480db9b3fd443a3cdcf9a6795531cc751ac89a7284f15e5f4d1a14c63",
+          "image.wav": "ae706b540ee1a0ec378b7c43c0e9f1995f7d1cbaaa398a2f734bd155ff12a275"
+        }
+      },
+      "ordered_pcm_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": {}
+    },
+    "cut-one-before-eof": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 44689,
+          "pcm_sha256": "2c2450e0e5d520d476fc1ccb96b8d17aa9fdbd5d9611ea5410ce03eb3944a654",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "4c3f414480db9b3fd443a3cdcf9a6795531cc751ac89a7284f15e5f4d1a14c63",
+          "image.wav": "8e1394ba4448b16aaf28be3652bfb9ca0370b89d684e72df3dcb3160a01a6602"
+        }
+      },
+      "ordered_pcm_sha256": "2c2450e0e5d520d476fc1ccb96b8d17aa9fdbd5d9611ea5410ce03eb3944a654",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1013,
+          "frames": 44688,
+          "pcm_sha256": "2b9950138453967d3b804d6a6ac92b853db8cb7d01297cab0650912ad5ab62b1",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 0,
+          "frames": 1,
+          "pcm_sha256": "f2599f384fa972839296a867a11f594831dbfa456c0d05d6f72f4885e37a87dc",
+          "rate": 44100
+        }
+      }
+    },
+    "data-track": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "c548659a4476835d6803df3332c01af67b78025af3ac7d8f7fb547788de5f344",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1013,
+          "frames": 44688,
+          "pcm_sha256": "2b9950138453967d3b804d6a6ac92b853db8cb7d01297cab0650912ad5ab62b1",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1987,
+          "frames": 87629,
+          "pcm_sha256": "fc2eae48e3888449865c01bdf181aecf669e8c00a7af85549bacdccc1ac55a98",
+          "rate": 44100
+        }
+      }
+    },
+    "descending": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "ea0643a0af58eea2c6a65a220a27eb7fa3c53394172d7077bed7b3ef9f12c1e6",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": {}
+    },
+    "duplicate-cut": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "e30c658511469ecf73c8d288f7715b26d0601caab6e8ee9b4a703547a8023d6e",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": {}
+    },
+    "embedded": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.flac": "f98f2192360bd6c7f86d7f9fded10b3c7c9557e21dbb7850aff7fb90639d4d2c"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Embedded 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 187,
+          "frames": 8232,
+          "pcm_sha256": "e707f6385155100ea3aab9d335f5c0ec6e55547604711ad61a39af07b38e3a7b",
+          "rate": 44100
+        },
+        "02 - Embedded 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 2814,
+          "frames": 124085,
+          "pcm_sha256": "65b5091539d560ad9353688cbcfcb0f68ce1bb0fc9965b9d465d4379ac909dfe",
+          "rate": 44100
+        }
+      }
+    },
+    "explicit-over-suffix": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "b8695d9be581f6b91bf627204591b526df99649df2969b9ee367d1293bfb743f",
+          "image.flac": "f98f2192360bd6c7f86d7f9fded10b3c7c9557e21dbb7850aff7fb90639d4d2c",
+          "image.flac.cue": "01a4d6f0c134d5520cbbdf972a76dec8b99e824581ba15a6f4f7bfff2afa0e1b",
+          "other sheet.cue": "2bf57104d49b593751e41d6628a9f4d4fdca1875e5cf0fabbe1e91711b099f05"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Explicit 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 3000,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        }
+      }
+    },
+    "gbk-crlf-compilation": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "6d6d895a2d4c826a3b5d10b1bd0421ddb932d956cb2c3884c3e7226fe2832062",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - 合作者 - 曲目 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Various Artists - 曲目 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - 合作者 - 曲目 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "hidden": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "eb7501b3ac26e4ebbb082eeafcd33acd00f2878c3b41ee2234d3efb5a6f3f25d",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "00.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 67,
+          "frames": 2940,
+          "pcm_sha256": "13f6dce2d0e9e5d9e9b7812b6542e7b21f14e718ad3f240684863acdd556a58d",
+          "rate": 44100
+        },
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1000,
+          "frames": 44100,
+          "pcm_sha256": "41a03ba047cf9dabe770f0dc9b917ea56a7acad7b86dcc0945eb0a763b4b270d",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "index-02": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "4bdc52e24ded301f8731d25d4fcfe95b16c426f765bd2120857549b570717712",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "missing-index": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "d507fc7822f89af121c46909c23402abb609d40283357f4b6a4c1b62b9345e9e",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 2027,
+          "frames": 89376,
+          "pcm_sha256": "c2757703e977539ef66b61056e51ae281bd36c6bdfffe12f6a8c16f4adcd6198",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "multifile-ascending": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "6ba984905f7b94177f6e0ef4cf49d784a6cdf01f7c271e8b36abd23610ad05ba",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1013,
+          "frames": 44688,
+          "pcm_sha256": "2b9950138453967d3b804d6a6ac92b853db8cb7d01297cab0650912ad5ab62b1",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1987,
+          "frames": 87629,
+          "pcm_sha256": "fc2eae48e3888449865c01bdf181aecf669e8c00a7af85549bacdccc1ac55a98",
+          "rate": 44100
+        }
+      }
+    },
+    "multifile-reset": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "e6891403baa5ee341e4ed7d7ee73599efb65db0e5aa4e3100fba6359bf0e0986",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": {}
+    },
+    "noncd-48000": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 96017,
+          "pcm_sha256": "62031c4fda527bad8eb627e80b3302e479fdfd106b9a8a6446fb38f532d94bb3",
+          "rate": 48000
+        },
+        "files": {
+          "image.cue": "0db4c2d572d4b274ef889008b0933010c5aa1ffe5101860fbdb497aa4e571c3b",
+          "image.wav": "4e7ad80ab085d23caba50696591f4b93bcb7e07b46804d4db6442cffd67f1bbe"
+        }
+      },
+      "ordered_pcm_sha256": "62031c4fda527bad8eb627e80b3302e479fdfd106b9a8a6446fb38f532d94bb3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 931,
+          "frames": 44688,
+          "pcm_sha256": "2b9950138453967d3b804d6a6ac92b853db8cb7d01297cab0650912ad5ab62b1",
+          "rate": 48000
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1069,
+          "frames": 51329,
+          "pcm_sha256": "507c8967c3b8953ba1cf695b55093d2b88a2fe4fb249b06d1c3846063f3e011d",
+          "rate": 48000
+        }
+      }
+    },
+    "noncd-96000-24": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 24,
+          "channels": 2,
+          "frames": 288000,
+          "pcm_sha256": "1dc619669f5958fb0b7c3e20bf85a4ea8af1363546351ebbacb8798827a80b7c",
+          "rate": 96000
+        },
+        "files": {
+          "image.cue": "4c3f414480db9b3fd443a3cdcf9a6795531cc751ac89a7284f15e5f4d1a14c63",
+          "image.wav": "0d80b39040b54cbedf5ca1be6c3a4cb88ba8a7b2d006a550095d68a9c2cc7f73"
+        }
+      },
+      "ordered_pcm_sha256": "1dc619669f5958fb0b7c3e20bf85a4ea8af1363546351ebbacb8798827a80b7c",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 24,
+          "channels": 2,
+          "duration_ms": 310,
+          "frames": 29792,
+          "pcm_sha256": "70878a10320423066f3fe8d0b9f77581fef7ece3e66e94d1e77310ec34c3d2e2",
+          "rate": 96000
+        },
+        "02 - Track 02.wav": {
+          "bits": 24,
+          "channels": 2,
+          "duration_ms": 2690,
+          "frames": 258208,
+          "pcm_sha256": "5dc6bb7c234b177844002ab2db818a775bc75f93c555ce13bce89ac808e126cb",
+          "rate": 96000
+        }
+      }
+    },
+    "noncd-mono": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 1,
+          "frames": 132300,
+          "pcm_sha256": "1e9002f790f79020adf595b214c95c38508745888a6dd386eca5c9ad3d311c1d",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "4c3f414480db9b3fd443a3cdcf9a6795531cc751ac89a7284f15e5f4d1a14c63",
+          "image.wav": "3b2c35dc57e023c57e0dd282e58d5104bb95729a846c3d9b55863ec9323b469f"
+        }
+      },
+      "ordered_pcm_sha256": "1e9002f790f79020adf595b214c95c38508745888a6dd386eca5c9ad3d311c1d",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 1,
+          "duration_ms": 2027,
+          "frames": 89376,
+          "pcm_sha256": "8540d4fd2ebc5d8eb503579ddb6ac66b5940377b8ec301fc50ac796f30c839e8",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 1,
+          "duration_ms": 973,
+          "frames": 42924,
+          "pcm_sha256": "78632cf8b62951cdf262cb2d568de18839b1e3ac3018700c2301674e979b3720",
+          "rate": 44100
+        }
+      }
+    },
+    "one-sector-rollover": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "4d7acb6ef4fb0a0219b32337930a85c7bdc43f06c6f2f7cbb7386453f87d01fc",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 987,
+          "frames": 43512,
+          "pcm_sha256": "4fe892a69d78877b8ac57b337c8f9dd28b588230ce0f323e01169b4df35f42c1",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 13,
+          "frames": 588,
+          "pcm_sha256": "0f80b6c4aea314dbb95a9af40e4827f7f6742140e66a1ee3c79791159ad6723c",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 2000,
+          "frames": 88217,
+          "pcm_sha256": "27af604effd17ba4d2ba1b5cfa3aa6dab38c00ed8fa6a5597a964267b27c3c46",
+          "rate": 44100
+        }
+      }
+    },
+    "plain": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "85a7fbbc9d9bbb98ba82989bd02aee2bd102effd4899f330cbfcdb4047b58ecb",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "postgap-first": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "fc33696286ced3947a54d006a271e7b8f29c92e13c7f35155dd4f070963aa080",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "postgap-last": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "cbb0508d96eca86edf6a9e3d438f0b9218f7b5149f20d772ae04aa577e9ace89",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "postgap-middle": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "f3e7eb9e19ad19a0cf8816b7e2eb3db4ac7adc1451260b608b758b275867480d",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "pregap-first": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "9faf836c47feef8a8de03f495acf009ff878e83124e80e9cd003a7f7681cf1f3",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "pregap-middle": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "2163a6dced8962f4e9dc1d5e888865b1d86f6d9af3675741cd38cf66e23fd160",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "recorded-and-declared": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "5658f51a5c41cb52343067b01ce1accccbf624b2b3085710fe290731d2d40690",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "recorded-pregap": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "23d9802dd3aba20423a8f420550cfa38cc28d9eaec129401188ba3236a24cc83",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Track 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "repeated-index": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "e1087ece8eb5fce2d815e206ba1c06ae0635898a3ba72eb8a4c12c0d4e270769",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": {}
+    },
+    "single-nonzero": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "61c2c27ec2d945f30f669ac8520cf96f002b237093ba0fd026c774c1fad89b93",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 3000,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        }
+      }
+    },
+    "single-pre-post": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "cac542b34b73444bfb3d9cfd3949952e1a872cef34e3804c3a0a1410be6f9364",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 3000,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        }
+      }
+    },
+    "standard-44100": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 88217,
+          "pcm_sha256": "55f1aa70554bc1405439c85bd44820d2b0c1a2535fd46ec5efa8dc2d833658b7",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "0db4c2d572d4b274ef889008b0933010c5aa1ffe5101860fbdb497aa4e571c3b",
+          "image.wav": "5ce72a6eb0e03442a19081a7010c2fba05bd0715e56d785d4b2c6d12e8d89159"
+        }
+      },
+      "ordered_pcm_sha256": "55f1aa70554bc1405439c85bd44820d2b0c1a2535fd46ec5efa8dc2d833658b7",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1013,
+          "frames": 44688,
+          "pcm_sha256": "2b9950138453967d3b804d6a6ac92b853db8cb7d01297cab0650912ad5ab62b1",
+          "rate": 44100
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 987,
+          "frames": 43529,
+          "pcm_sha256": "8e5cb85ce413dd7cc691deda1cc2be42b102fc1abff45d54dd03e300560320a0",
+          "rate": 44100
+        }
+      }
+    },
+    "stem-over-embedded": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "b8695d9be581f6b91bf627204591b526df99649df2969b9ee367d1293bfb743f",
+          "image.flac": "f98f2192360bd6c7f86d7f9fded10b3c7c9557e21dbb7850aff7fb90639d4d2c"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Stem 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Stem 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - Stem 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    },
+    "suffix-over-stem": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "b8695d9be581f6b91bf627204591b526df99649df2969b9ee367d1293bfb743f",
+          "image.flac": "f98f2192360bd6c7f86d7f9fded10b3c7c9557e21dbb7850aff7fb90639d4d2c",
+          "image.flac.cue": "01a4d6f0c134d5520cbbdf972a76dec8b99e824581ba15a6f4f7bfff2afa0e1b"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - Suffix 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Suffix 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1934,
+          "frames": 85277,
+          "pcm_sha256": "f14c5f2b7e4ddf9363bc877b84ed7baea3b37795456e2a55b634b86df5a95336",
+          "rate": 44100
+        }
+      }
+    },
+    "third-beyond-eof": {
+      "exit": 3,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 89375,
+          "pcm_sha256": "e6f3ffd8df251639e5355279634f3b6a8c91ed0ba37745505e958c807249d5dd",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "85a7fbbc9d9bbb98ba82989bd02aee2bd102effd4899f330cbfcdb4047b58ecb",
+          "image.wav": "4e3911f0360cf60d4fef909dd60f3ee933ee87971ee227bdf9830263914c96d5"
+        }
+      },
+      "ordered_pcm_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": {}
+    },
+    "unaligned-five-channels": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 5,
+          "frames": 132317,
+          "pcm_sha256": "df1f25bf5e955f76296ae39803b781a2748b1e3ce59929180ee48d8edfb9e317",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "226300d541bfeca0fcfc5debb3b5041653e92c324b4baf90d6d9e626d02faf35",
+          "image.wav": "53153da5968d5e4079d1b056e28495176974060bb032eb8770e35154a20be89e"
+        }
+      },
+      "ordered_pcm_sha256": "df1f25bf5e955f76296ae39803b781a2748b1e3ce59929180ee48d8edfb9e317",
+      "outputs": {
+        "01 - Track 01.wav": {
+          "bits": 16,
+          "channels": 5,
+          "duration_ms": 5,
+          "frames": 235,
+          "pcm_sha256": "8bc6c04f24283b189e64817d928c71350910ef534485ae34531274e4c07091c3",
+          "rate": 44100,
+          "trailing_frame_bytes": 2
+        },
+        "02 - Track 02.wav": {
+          "bits": 16,
+          "channels": 5,
+          "duration_ms": 2995,
+          "frames": 132081,
+          "pcm_sha256": "e18596074d1ba4a2f8641053b23ed52437c450588ab17b49afed35b80d8d3bf8",
+          "rate": 44100,
+          "trailing_frame_bytes": 8
+        }
+      }
+    },
+    "utf8-bom-crlf": {
+      "exit": 0,
+      "inputs": {
+        "audio": {
+          "bits": 16,
+          "channels": 2,
+          "frames": 132317,
+          "pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+          "rate": 44100
+        },
+        "files": {
+          "image.cue": "7b47f10b7dce208b4d122f3adbee9731a8a699896f6f2fb8b922b9c8e277015f",
+          "image.wav": "356a58b4517ef43d8c364cc8e68e66f132853e20478f29cf164efa6702c9e414"
+        }
+      },
+      "ordered_pcm_sha256": "278b7210686023c9ef14860d60098fad540806057be6314484b85bc9f4ea56c3",
+      "outputs": {
+        "01 - 合作者 - 曲目 01.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 1067,
+          "frames": 47040,
+          "pcm_sha256": "9f8d81b3b174455fb94968109d48eb5ed30539aeb060a9f8a9bc96ea3995a133",
+          "rate": 44100
+        },
+        "02 - Various Artists - 曲目 02.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 960,
+          "frames": 42336,
+          "pcm_sha256": "167d104599e036c7421ca38298f419f4c46052cb196d3fda2e7dcb957c4fcf16",
+          "rate": 44100
+        },
+        "03 - 合作者 - 曲目 03.wav": {
+          "bits": 16,
+          "channels": 2,
+          "duration_ms": 974,
+          "frames": 42941,
+          "pcm_sha256": "18f1a82638515948f5246a3c1f2c194aef4020d240ecb0e692fd66c25774884f",
+          "rate": 44100
+        }
+      }
+    }
+  },
+  "duration_check": {
+    "case": "anonymous-disc",
+    "eof_basis": "Synthetic only: final original INDEX 01 (56:25:70, 149319660 frames) plus 1115.493 seconds from the duration table, rounded to the nearest sample (49193241 frames). Original disc EOF unknown.",
+    "mismatches": [],
+    "table_ms": [
+      970667,
+      524000,
+      229667,
+      566000,
+      404333,
+      690840,
+      1115493
+    ]
+  },
+  "reference": {
+    "commit": "491591d21e2f97419e74751864b76b234b0fa2f1",
+    "image": "mikenye/split2flac@sha256:47e6cb8d835a05f08efae20f7bf196552754df09e9dc957cc473b870f4dbc8ba",
+    "locale": "C.UTF-8",
+    "platform": "linux/amd64",
+    "script_sha256": "9150d8ccc6a47e0ea35bcdd4d5c790ce03c8cb70302f64a5512d7f78e0e79822",
+    "tools": {
+      "cueprint": "cuetools 1.4.0",
+      "flac": "flac 1.3.1",
+      "shntool": "shntool 3.0.10"
+    }
+  },
+  "schema": 1
+}

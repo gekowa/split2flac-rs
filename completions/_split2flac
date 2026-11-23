@@ -1,0 +1,31 @@
+#compdef split2flac split2m4a split2mp3 split2ogg split2opus split2wav
+
+_arguments \
+  '-p[preview without writing output]' \
+  '-o[output directory]:directory:_directories' \
+  '-of[output naming template]:template:' \
+  '-cue[explicit CUE sheet]:cue file:_files' \
+  '-cuecharset[CUE text encoding]:charset:(UTF-8 UTF-16LE UTF-16BE GBK GB18030 Big5 Shift_JIS windows-1251 windows-1252)' \
+  '-nask[do not prompt for CUE encoding]' \
+  '-f[output format]:format:(flac m4a mp3 ogg opus wav)' \
+  '-e[FFmpeg audio encoder arguments]:options:' \
+  '-eh[show help for the selected encoder]' \
+  '-enca[charset detector language options]:options:' \
+  '-c[select cover art]:image:_files' \
+  '-nc[disable cover art]' \
+  '-C[companion file globs]:masks:' \
+  '-nC[disable companion file copying]' \
+  '-cs[maximum cover dimensions]:width x height:' \
+  '-d[use template directories]' \
+  '-nd[omit template directories]' \
+  '-D[delete source after successful completion]' \
+  '-nD[keep source]' \
+  '-F[skip source deletion prompt]' \
+  '-colors[enable color]' \
+  '-nocolors[disable color]' \
+  '-g[write ReplayGain tags]' \
+  '-ng[skip ReplayGain]' \
+  '-s[save preferences]' \
+  {-h,-help,--help}'[show help]' \
+  {-v,--version}'[show version]' \
+  '1:image or collection:_files'

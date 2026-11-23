@@ -1,0 +1,42 @@
+Corresponding source — included with this copy, not a link or a future offer
+
+The Rust application launches ffmpeg and ffprobe as independent processes.
+Those tools use FFmpeg (https://ffmpeg.org), LAME (https://lame.sourceforge.io),
+Xiph Ogg, Vorbis and Opus (https://xiph.org), and zlib (https://zlib.net).
+Their complete input archives, source hashes, exact build recipe, FFmpeg
+configuration and compiler description are in source/codecs/. Licensing and
+copyright texts are in licenses/ and in the original archives. No GPL or
+nonfree FFmpeg configure option was enabled. The LGPL tools may be replaced
+with your modified, compatible builds. There is no prohibition on modification,
+relinking, or reverse engineering for debugging such modifications.
+
+Rebuild just the tools, from the root of the extracted package, with bash,
+GNU make, tar, a C compiler and pkg-config. Choose a target from tools.lock.json.
+Use Xcode CLT on Darwin, native MSYS2 UCRT64 on Windows or x86_64-w64-mingw32
+tools when cross-building Windows. Do not run the build script as root.
+
+  cd source/codecs
+  bash build-codecs.sh TARGET "$PWD/rebuilt" "$PWD/ffmpeg-9.1.tar.xz" \
+    "$PWD/libogg-1.3.5.tar.xz" "$PWD/libvorbis-1.3.7.tar.xz" \
+    "$PWD/lame_3.100.orig.tar.gz" "$PWD/opus-1.5.2.tar.gz" "$PWD/zlib-1.3.1.tar.gz"
+
+Replace the two binaries in tools/ with your builds. The recipe includes any
+build-system modifications to old upstream configure scripts. No audio codec
+source changes or application-specific patches are kept outside that recipe.
+
+source/rust/ contains the Rust program, its manifest and Cargo.lock. The .crate
+files there are the Cargo.lock-checksummed original source distributions of the
+Rust dependencies selected for this target, including their nested notices,
+license texts and build recipes for statically linked native dependencies.
+They are gzip-compressed tar archives. With a standard Rust/Cargo toolchain and
+C compiler for the target: cd source/rust; cargo build --release --locked
+--target TARGET. With a populated Cargo cache this can also be run --offline.
+Registry crates can be replaced via Cargo's [patch.crates-io] mechanism.
+Building from source requires toolchains; running the packaged application
+does not. See licenses/rust-crates.txt for the per-crate index.
+
+licenses/rust-stdlib/ contains the upstream copyright index and licenses from
+the compiler distribution. Windows also includes MinGW-w64 CRT and winpthreads
+notices (mingw-w64 project, v14.0.0) under licenses/mingw-w64/. The GCC runtime
+uses GPLv3 with the GCC Runtime Library Exception 3.1; both texts are included
+in licenses/rust-stdlib/licenses/. System frameworks/DLLs are supplied by the OS.

@@ -1,0 +1,93 @@
+name: Offline release acceptance
+on:
+  workflow_dispatch:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Fetch immutable reference image
+        run: docker pull --platform linux/amd64 mikenye/split2flac@sha256:47e6cb8d835a05f08efae20f7bf196552754df09e9dc957cc473b870f4dbc8ba
+      - name: Rebuild the synthetic oracle (read-only comparison)
+        run: python3 tests/oracle/generate.py --check
+
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-2022
+            target: x86_64-pc-windows-msvc
+            ext: zip
+          - runner: macos-15
+            target: aarch64-apple-darwin
+            ext: tar.gz
+          - runner: macos-15-intel
+            target: x86_64-apple-darwin
+            ext: tar.gz
+    runs-on: ${{ matrix.runner }}
+    env:
+      TARGET: ${{ matrix.target }}
+      PYTHONUTF8: '1'
+      CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUSTFLAGS: '-C target-feature=+crt-static'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.13'
+      - name: Set up native Windows C build tools (build time only)
+        if: runner.os == 'Windows'
+        id: msys
+        uses: msys2/setup-msys2@3c51bf698df1e37b2261f53cb67797b97761185c # v2
+        with:
+          msystem: UCRT64
+          cache: false
+          install: make tar diffutils gawk grep sed patch xz gzip bzip2 mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-pkgconf
+      - name: Set up Darwin C build tools (build time only)
+        if: runner.os == 'macOS'
+        run: command -v pkg-config || brew install pkgconf
+      - name: Fetch locked build inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustup target add "$TARGET"
+          rustup component add rust-docs
+          cargo fetch --locked --target "$TARGET"
+          python packaging/package.py --target "$TARGET" --fetch-only
+      - name: Compile with MSVC before exposing the separate MinGW build environment
+        if: runner.os == 'Windows'
+        shell: bash
+        run: cargo build --locked --offline --release --target "$TARGET"
+      - name: Assemble offline package (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        env:
+          MSYS_ROOT: ${{ steps.msys.outputs.msys2-location }}
+          MSYSTEM: UCRT64
+        run: |
+          $python = (Get-Command python.exe).Source
+          $env:PATH = "$env:MSYS_ROOT\ucrt64\bin;$env:MSYS_ROOT\usr\bin;$env:PATH"
+          & $python packaging/package.py --target $env:TARGET --bin "target/$env:TARGET/release/split2flac.exe" --bash "$env:MSYS_ROOT\usr\bin\bash.exe" --offline
+      - name: Assemble offline package (macOS)
+        if: runner.os == 'macOS'
+        run: python packaging/package.py --target "$TARGET" --offline
+      - name: Unpack under a new Unicode path; verify complete oracle and 30 codec pairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Record the host, checksum and completed cases even on failure.
+          trap 'cat "$RUNNER_TEMP/acceptance.txt" >> "$GITHUB_STEP_SUMMARY"' EXIT
+          python packaging/check_release.py "dist/split2flac-$TARGET.${{ matrix.ext }}" --target "$TARGET" 2>&1 | tee "$RUNNER_TEMP/acceptance.txt"
+      - name: Run CLI, gain and audio regression tests against the same codec build
+        shell: bash
+        run: |
+          set -euo pipefail
+          export SPLIT2FLAC_TOOLS="$(python -c "import os, pathlib; (p,)=(pathlib.Path('target/packaging/tools')/os.environ['TARGET']).glob('*/hashes.json'); print(p.resolve().parent)")"
+          cargo test --locked --offline --target "$TARGET"
