@@ -100,7 +100,7 @@ fn start_encoder(pcm: &PcmFormat, output: &Output, path: &Path, format: &str, ar
     let picture = cover.filter(|_| output.number != 0 && matches!(format, "flac" | "m4a"));
     if let Some(p) = picture {
         // The prepared cover is always one JPEG, regardless of temporary name.
-        c.args(["-f", "mjpeg", "-protocol_whitelist", "file", "-i"]).arg(std::path::absolute(p)?);
+        c.args(["-f", "image2pipe", "-c:v", "mjpeg", "-protocol_whitelist", "file", "-i"]).arg(std::path::absolute(p)?);
     }
     c.args(["-map", "0:a:0", "-map_metadata", "-1", "-map_chapters", "-1"]);
     if picture.is_some() {

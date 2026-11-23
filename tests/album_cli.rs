@@ -63,3 +63,24 @@ fn a_symlinked_album_directory_cannot_escape_the_output_root() {
     assert!(dir.join("盘.wav").exists());
     assert_eq!(outside.read_dir().unwrap().count(),0);
 }
+
+#[test]
+fn a_report_name_cannot_destroy_a_track_or_its_only_source() {
+    let tmp=tempdir().unwrap(); let dir=tmp.path(); let music=dir.join("music"); fs::create_dir(&music).unwrap();
+    fixture(&music,&["One"]);
+    let result=run(dir,&["-D","-F","-nd","-nC","-f","wav","-of","split_failed.txt","music"]);
+    assert_eq!(result.status.code(),Some(3),"{result:?}");
+    assert!(music.join("盘.wav").is_file());
+    assert!(fs::read_to_string(dir.join("split_failed.txt")).unwrap().contains("盘.wav"));
+}
+
+#[test]
+fn a_conflicting_companion_fails_before_audio_is_published() {
+    let tmp=tempdir().unwrap(); let dir=tmp.path(); fixture(dir,&["One","Two"]);
+    fs::create_dir(dir.join("out")).unwrap();
+    fs::write(dir.join("rip.log"),b"new").unwrap();fs::write(dir.join("out/rip.log"),b"old").unwrap();
+    let result=run(dir,&["-D","-F","-nd","-C","*.log","-o","out","-f","wav","盘.wav"]);
+    assert_eq!(result.status.code(),Some(3),"{result:?}");
+    assert_eq!(fs::read(dir.join("out/rip.log")).unwrap(),b"old");assert!(dir.join("盘.wav").is_file());
+    assert_eq!(fs::read_dir(dir.join("out")).unwrap().count(),1);
+}

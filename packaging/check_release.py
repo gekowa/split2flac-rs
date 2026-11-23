@@ -105,10 +105,10 @@ def matrix(program, work, env):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('archive', type=Path)
-    p.add_argument('--target', required=True, choices=[*TARGETS.values(), 'x86_64-pc-windows-gnu'])
+    p.add_argument('--target', required=True, choices=[*TARGETS.values(), 'x86_64-pc-windows-gnu', 'x86_64-pc-windows-gnullvm'])
     args = p.parse_args()
     local = TARGETS.get((platform.system(), platform.machine().lower()))
-    host_target = 'x86_64-pc-windows-msvc' if args.target == 'x86_64-pc-windows-gnu' else args.target
+    host_target = 'x86_64-pc-windows-msvc' if '-windows-' in args.target else args.target
     require(local == host_target, f'{args.target} needs native hardware; this Python reports {local}')
     if platform.system() == 'Darwin':
         translated = subprocess.run(['/usr/sbin/sysctl', '-in', 'sysctl.proc_translated'], capture_output=True)

@@ -29,6 +29,8 @@ ROOT = HERE.parent
 LOCK = HERE / 'tools.lock.json'
 RECIPE = HERE / 'build-codecs.sh'
 CONFIG = json.loads(LOCK.read_text(encoding='utf-8'))
+# FFmpeg is an independent Win64 process, identical for the two MinGW Rust ABIs.
+CONFIG['targets']['x86_64-pc-windows-gnullvm'] = CONFIG['targets']['x86_64-pc-windows-gnu']
 STAGE = ROOT / 'target/packaging'
 ALIASES = ('split2m4a', 'split2mp3', 'split2ogg', 'split2opus', 'split2wav')
 
@@ -112,6 +114,8 @@ def check_binary(path, target):
 def build_tools(target, archives, bash):
     # Cached objects are target-, recipe-, and source-specific, and rehashed on
     # reuse. Only source archives, never arbitrary downloaded binaries, enter here.
+    if target == 'x86_64-pc-windows-gnullvm':
+        target = 'x86_64-pc-windows-gnu'
     key = hashlib.sha256(LOCK.read_bytes() + RECIPE.read_bytes()).hexdigest()
     directory = STAGE / 'tools' / target / key
     receipt = directory / 'hashes.json'
@@ -203,6 +207,8 @@ def package(args, archives, tools):
         env = os.environ.copy()
         if args.target.endswith('-msvc'):
             env.setdefault('CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUSTFLAGS', '-C target-feature=+crt-static')
+        if args.target.endswith('-gnullvm'):
+            env.setdefault('CARGO_TARGET_X86_64_PC_WINDOWS_GNULLVM_RUSTFLAGS', '-C link-arg=-static')
         # Use the executable Cargo actually produced; target-dir is configurable.
         artifacts = subprocess.check_output([
             'cargo', 'build', '--release', '--locked', '--offline', '--target', args.target,
