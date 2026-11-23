@@ -1,0 +1,7 @@
+# MSYS bash and source-build recipe digests require the same LF bytes on Windows.
+* text=auto eol=lf
+*.ape binary
+*.flac binary
+*.m4a binary
+*.mp3 binary
+*.ogg binary

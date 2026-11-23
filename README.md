@@ -18,6 +18,7 @@
 ```
 
 - **输入**：APE、FLAC、TTA、WavPack、WAV；目录输入会递归查找。`-cue` 优先于 `src.flac.cue`、`src.cue` 和内嵌 CUE。非 UTF-8 文本可用 `-cuecharset GBK` 等显式指定。
+- **字符集**：`-enca '-L zh'` 或 `-enca '--language=ru'` 给 Rust 探测器指定语言提示，并不调用原版 `enca`。不支持的探测参数会报错；知道编码时优先用 `-cuecharset`，批处理用 `-nask` 关闭交互。
 - **输出**：FLAC（默认）、M4A/AAC、MP3、Ogg Vorbis、Opus、WAV。`-of '@artist/{@year - }@album/@track - @title.@ext'` 设置命名；`-nd` 不创建模板子目录。同名输出不覆盖。
 - **编解码参数**：`-e` 使用对应 FFmpeg 编码器的参数；`-eh` 查看帮助。FLAC `-8` 对应 `-compression_level 8`，LAME `--preset standard` 与 Vorbis `-q 5` 分别对应 `-q:a 2` 与 `-q:a 5`。FAAC 和 FFmpeg AAC 的质量刻度不同，不保证码流或码率逐字节一致。
 - **专辑处理**：`-c` / `-cs` 设置封面及尺寸；`-nc` 禁用封面。`-C` / `-nC` 控制附属文件复制。`-g` 启用对应格式的 ReplayGain 分析，不是 PCM 音量归一化。`-s` 保存配置。`-h` 显示全部选项。
@@ -41,9 +42,28 @@ cargo run --release --locked -- -h
 ## 验证
 
 ```sh
+# 仅在需要重新生成原版基准时获取参考镜像
+docker pull --platform linux/amd64 mikenye/split2flac@sha256:47e6cb8d835a05f08efae20f7bf196552754df09e9dc957cc473b870f4dbc8ba
 cargo test --locked
 python3 tests/oracle/generate.py --check
 python3 tests/compare.py --bin target/release/split2flac
 ```
 
-仅重建基准需要 Docker；比较已冻结的原版结果不需要安装 shntool、cuetools 或运行原脚本。原版脚本及参考容器摘要见[设计](docs/superpowers/specs/2026-11-23-split2flac-design.md)，实现与原生发布验收见[计划](docs/superpowers/plans/2026-11-23-split2flac.md)。
+仅重建基准需要 Docker。`tests/oracle/expected.json` 记录原版退出状态、输出文件名、音频属性及逐轨 PCM SHA-256；只读比较不需要安装 shntool、cuetools 或运行原脚本。原生验收入口为 `packaging/check_release.py`。
+
+## 构建离线包
+
+`packaging/tools.lock.json` 固定了 FFmpeg、LAME、Vorbis、Ogg、Opus 和 zlib 的源码版本与校验和；两个辅助程序从这些源码构建。ReplayGain 分析与分格式写标签在 Rust 程序内执行，不需要另装 `mp3gain`、`aacgain` 或 `metaflac`。
+
+以 Apple Silicon 为例（打包需要 Python 3.12+、C 工具链、make 和 pkg-config；使用发布包不需要）：
+
+```sh
+T=aarch64-apple-darwin
+rustup component add rust-docs
+cargo fetch --locked --target "$T"
+python3 packaging/package.py --target "$T" --fetch-only
+python3 packaging/package.py --target "$T" --offline
+python3 packaging/check_release.py "dist/split2flac-$T.tar.gz" --target "$T"
+```
+
+压缩包及 `.sha256` 校验文件在 `dist/`。Windows ZIP 和两个 macOS tar.gz 分开分发；请勿只复制主程序。普通 CLI 使用不需要网络、Python 或管理员权限。
