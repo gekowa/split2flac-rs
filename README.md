@@ -1,9 +1,9 @@
 # split2flac-rs (Reimplement in Rust)
 
-split2flac 对于切分 flac + cue 来说是完美的, 除了它的难以配置的依赖和系统兼容性之外
-unflac 被 split2flac 指定为后继者, 但它对于 pregap 和 postgap 的忽视, 也让我无法忍受.
+- [split2flac](https://github.com/ftrvxmtrx/split2flac) 对于切分 flac + cue 来说是完美的, 除了它的难以配置的依赖和系统兼容性之外, 以至于大家都不得不用 Docker 来运行它
+- [unflac](https://github.com/nilzeronull/unflac) 被 split2flac 指定为后继者, 但它对于 pregap 和 postgap 的忽视, 也让我无法忍受.
 
-因此我用 Rust 重新实现了 `split2flac-rs`。切轨行为以原版 [split2flac v122](https://github.com/ftrvxmtrx/split2flac/tree/491591d21e2f97419e74751864b76b234b0fa2f1) 的实际输出为准；编解码由 FFmpeg 完成。
+因此我用 Rust 重新实现了 `split2flac-rs`。切轨行为以原版 [split2flac v122](https://github.com/ftrvxmtrx/split2flac/tree/491591d21e2f97419e74751864b76b234b0fa2f1) 的实际输出为准；编解码由 FFmpeg 完成, 以简化依赖.
 
 目标平台为 Windows x64、macOS Apple Silicon 和 macOS Intel。不做原 Shell 脚本的包装器。
 

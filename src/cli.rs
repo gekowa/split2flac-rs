@@ -193,7 +193,7 @@ impl Config {
 }
 
 const HELP: &str = "\
-Usage: split2FORMAT [OPTIONS] FILE|DIR [OPTIONS]
+Usage: split2FORMAT-rs [OPTIONS] FILE|DIR [OPTIONS]
 Split APE, FLAC, TTA, WavPack or WAV using an external or embedded CUE sheet.
 
   -p                    Dry run: show the plan without writing audio or deleting files
